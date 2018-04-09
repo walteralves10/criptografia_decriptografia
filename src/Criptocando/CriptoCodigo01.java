@@ -2,7 +2,7 @@ package Criptocando;
 
     import java.util.Random;
 
-public class CriptoCodigo {
+public class CriptoCodigo01 {
          
           public String criptografa(String mensagem, String chave) {
                   if (mensagem.length() != chave.length()) error("O tamanho da mensagem e da chave devem ser iguais.");
@@ -44,7 +44,7 @@ public class CriptoCodigo {
          
           public static void main(String[] args){
               
-                  CriptoCodigo otp = new CriptoCodigo();
+                  CriptoCodigo01 otp = new CriptoCodigo01();
                   
                   String menssagem = "brunao vai fazer as telinha pq ele e um bosta";
                   String chave = otp.genKey(menssagem.length());
