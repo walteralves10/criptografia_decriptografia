@@ -43,8 +43,10 @@ public class CriptoCodigo {
           }
          
           public static void main(String[] args){
+              
                   CriptoCodigo otp = new CriptoCodigo();
-                  String menssagem = "hello";
+                  
+                  String menssagem = "brunao vai fazer as telinha pq ele e um bosta";
                   String chave = otp.genKey(menssagem.length());
                   String msgCriptografada = otp.criptografa(menssagem, chave);
                   String msgDecriptografada = otp.decriptografa(msgCriptografada, chave);
