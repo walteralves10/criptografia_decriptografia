@@ -27,7 +27,7 @@ public class CriptoCodigo04 {
                    cifraDES.init(Cipher.ENCRYPT_MODE, chaveDES);
    
                    // Texto puro
-                   byte[] textoPuro = "Exemplo de texto puro".getBytes();
+                   byte[] textoPuro = "Exemplo de texto puro, Exemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puroExemplo de texto puro".getBytes();
    
                    System.out.println("Texto [Formato de Byte] : " + textoPuro);
                    System.out.println("Texto Puro : " + new String(textoPuro));

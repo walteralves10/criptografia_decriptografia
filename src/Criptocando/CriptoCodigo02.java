@@ -12,7 +12,7 @@ public class CriptoCodigo02 {
       public static void main(String[] args) {
           try {
                
-               CriptoCodigo02 rc4 = new CriptoCodigo02("testkey");
+              CriptoCodigo02 rc4 = new CriptoCodigo02("testkey");
               char[] textoCriptografado = rc4.criptografa("Teste de Mensagem de Texto Puro".toCharArray());
               System.out.println("Texto Criptografado:\n" + new String(textoCriptografado));
               System.out.println("Texto Decriptografado:\n"
