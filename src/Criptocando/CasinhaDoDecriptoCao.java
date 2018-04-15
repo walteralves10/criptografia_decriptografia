@@ -24,7 +24,7 @@ public class CasinhaDoDecriptoCao extends javax.swing.JFrame {
     }
     CriptoCodigo02 cpD = new CriptoCodigo02();
     
-    CasinhaDoCriptoCao c = new CasinhaDoCriptoCao();    
+    //CasinhaDoCriptoCao c = new CasinhaDoCriptoCao();    
     
     
     /**
@@ -105,23 +105,25 @@ public class CasinhaDoDecriptoCao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bDescriptografarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDescriptografarActionPerformed
-        String a = new String(c.cp.getKey());
-        
-        JOptionPane.showMessageDialog(null, "" + a);
+//        String a = new String(c.cp.getKey());
+//        
+//        JOptionPane.showMessageDialog(null, "" + a);
         
         try {
-            cpD.setKey(chaveCliente.getText());
+            cpD.setKeyD(chaveCliente.getText());
         } catch (InvalidKeyException ex) {
             Logger.getLogger(CasinhaDoDecriptoCao.class.getName()).log(Level.SEVERE, null, ex);
         }  
         
-        
-        if(cpD.getKey().equals(cpD.getKey())){
+        String chavea = new String(cpD.getKey());
+        String chaveb = new String(cpD.getKeyD());
+        //JOptionPane.showMessageDialog(null,"a: " + chavea + "b: " + chaveb);
+        if(chavea.equals(chaveb)){
             String textoNormalizado = new String(cpD.decriptografa(textoCriptografado.getText().toCharArray()));
             criptoText.setText(textoNormalizado);
-        }else{
-            JOptionPane.showMessageDialog(null, "Ta errada a chave, o Waltão!");
-        }
+       }else{
+            JOptionPane.showMessageDialog(null, "Chave invalida!Brunao é viado");
+       }
 
     }//GEN-LAST:event_bDescriptografarActionPerformed
 

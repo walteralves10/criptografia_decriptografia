@@ -31,6 +31,7 @@ public class CriptoCodigo04 {
    
                    System.out.println("Texto [Formato de Byte] : " + textoPuro);
                    System.out.println("Texto Puro : " + new String(textoPuro));
+                   System.out.println("chave : " + chaveDES);
    
                    // Texto encriptado
                    byte[] textoEncriptado = cifraDES.doFinal(textoPuro);

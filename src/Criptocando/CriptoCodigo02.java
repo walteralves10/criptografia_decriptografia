@@ -5,32 +5,30 @@ package Criptocando;
 public class CriptoCodigo02 {
 
       
-      private char[] key;
-      private char[] keyD;
+      public static char[] key;
+      public static char[] keyD;
       private int[] sbox;
       private static final int SBOX_LENGTH = 256;
       private static final int TAM_MIN_CHAVE = 5;
    
-    public char[] getKey() {
-        return key;
-    }
-
-    public char[] getKeyD() {
-        return keyD;
-    }
-//      public static void main(String[] args) {
-//          try {
-//               
+    
+      public static void main(String[] args) {
+          //try {
+               
 //              CriptoCodigo02 rc4 = new CriptoCodigo02("testkey");
 //              char[] textoCriptografado = rc4.criptografa("Teste de Mensagem de Texto Puro".toCharArray());
 //              System.out.println("Texto Criptografado:\n" + new String(textoCriptografado));
 //              System.out.println("Texto Decriptografado:\n"
 //                      + new String(rc4.decriptografa(textoCriptografado)));
-//              
-//          } catch (InvalidKeyException e) {
-//              System.err.println(e.getMessage());
-//          }
-//      }
+                new CasinhaDoCriptoCao().setVisible(true);
+                new CasinhaDoDecriptoCao().setVisible(true);
+                
+                
+              
+         // } catch (InvalidKeyException e) {
+              //System.err.println(e.getMessage());
+         // }
+      }
    
       public CriptoCodigo02(String key) throws InvalidKeyException {
           setKey(key);
@@ -95,5 +93,13 @@ public class CriptoCodigo02 {
    
           this.keyD = keyD.toCharArray();
       }
+      
+      public static char[] getKey() {
+        return key;
+    }
+
+    public static char[] getKeyD() {
+        return keyD;
+    }
    
 }
