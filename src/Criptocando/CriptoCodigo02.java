@@ -3,25 +3,34 @@ package Criptocando;
      import java.security.InvalidKeyException;
 
 public class CriptoCodigo02 {
+
       
       private char[] key;
+      private char[] keyD;
       private int[] sbox;
       private static final int SBOX_LENGTH = 256;
       private static final int TAM_MIN_CHAVE = 5;
    
-      public static void main(String[] args) {
-          try {
-               
-              CriptoCodigo02 rc4 = new CriptoCodigo02("testkey");
-              char[] textoCriptografado = rc4.criptografa("Teste de Mensagem de Texto Puro".toCharArray());
-              System.out.println("Texto Criptografado:\n" + new String(textoCriptografado));
-              System.out.println("Texto Decriptografado:\n"
-                      + new String(rc4.decriptografa(textoCriptografado)));
-              
-          } catch (InvalidKeyException e) {
-              System.err.println(e.getMessage());
-          }
-      }
+    public char[] getKey() {
+        return key;
+    }
+
+    public char[] getKeyD() {
+        return keyD;
+    }
+//      public static void main(String[] args) {
+//          try {
+//               
+//              CriptoCodigo02 rc4 = new CriptoCodigo02("testkey");
+//              char[] textoCriptografado = rc4.criptografa("Teste de Mensagem de Texto Puro".toCharArray());
+//              System.out.println("Texto Criptografado:\n" + new String(textoCriptografado));
+//              System.out.println("Texto Decriptografado:\n"
+//                      + new String(rc4.decriptografa(textoCriptografado)));
+//              
+//          } catch (InvalidKeyException e) {
+//              System.err.println(e.getMessage());
+//          }
+//      }
    
       public CriptoCodigo02(String key) throws InvalidKeyException {
           setKey(key);
@@ -76,6 +85,15 @@ public class CriptoCodigo02 {
           }
    
           this.key = key.toCharArray();
+      }
+      
+      public void setKeyD(String keyD) throws InvalidKeyException {
+          if (!(keyD.length() >= TAM_MIN_CHAVE && keyD.length() < SBOX_LENGTH)) {
+              throw new InvalidKeyException("Tamanho da chave deve ser entre "
+                      + TAM_MIN_CHAVE + " e " + (SBOX_LENGTH - 1));
+          }
+   
+          this.keyD = keyD.toCharArray();
       }
    
 }

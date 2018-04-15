@@ -5,6 +5,10 @@
  */
 package Criptocando;
 
+import java.security.InvalidKeyException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author walte
@@ -18,6 +22,8 @@ public class CasinhaDoCriptoCao extends javax.swing.JFrame {
         initComponents();
     }
 
+    CriptoCodigo02 cp = new CriptoCodigo02();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +34,14 @@ public class CasinhaDoCriptoCao extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        textoCliente = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        chaveCliente = new javax.swing.JTextField();
+        bCriptografar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        criptoText = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,19 +58,76 @@ public class CasinhaDoCriptoCao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setText("Texto Puro Por Nós");
+
+        jLabel2.setText("Chave Para Criptografia");
+
+        bCriptografar.setText("Criptografar");
+        bCriptografar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCriptografarActionPerformed(evt);
+            }
+        });
+
+        criptoText.setColumns(20);
+        criptoText.setRows(5);
+        jScrollPane1.setViewportView(criptoText);
+
+        jLabel3.setText("Minimo 5 caracteres e no maximo 256");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                        .addComponent(bCriptografar)
+                        .addComponent(textoCliente)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(chaveCliente)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chaveCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(bCriptografar)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bCriptografarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCriptografarActionPerformed
+        String key = chaveCliente.getText();
+        try {
+            cp.setKey(key);
+            //cp.criptografa(textoCliente.getText().toCharArray());
+            String b = new String(cp.criptografa(textoCliente.getText().toCharArray()));
+            criptoText.setText(b);
+            
+        } catch (InvalidKeyException ex) {
+            Logger.getLogger(CasinhaDoCriptoCao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_bCriptografarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +165,14 @@ public class CasinhaDoCriptoCao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCriptografar;
+    private javax.swing.JTextField chaveCliente;
+    private javax.swing.JTextArea criptoText;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField textoCliente;
     // End of variables declaration//GEN-END:variables
 }
